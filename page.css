@@ -1,77 +1,88 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-image: url('/images/background-graphics/landing_background_underwater.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* optional: keeps it in place when scrolling */
-  }
-
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url("images/background-graphics/landing_background_underwater.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #000; /* Fallback color */
+}
 
 /*------- landing page container ------*/
-.landing-page{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0vh;
-    z-index: 1;
-    flex-direction: column;
+.landing-page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Optional: Adds a slight overlay to make content more visible */
 }
 
 /*------- Logo ------*/
-.logo{
-    width: 60vw;
-    margin: 3rem;
-    justify-content: center;
-    z-index: 1;
+.logo {
+  width: 60vw;
+  max-width: 600px;
+  margin: 3rem;
+  z-index: 1;
 }
 
 /*---Landing Page Octopus-------*/
-.landing-page-button{
-    position: relative;
-    display: inline-block;
-    text-align: center;
+.landing-page-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-.landing-page__octopus{
-    width: 10rem;
-    position: absolute;
-    top: 55vh; 
-    left: 60vw;
-    transform: translateX(-50%);
-    }
+.landing-page__octopus {
+  width: 10rem;
+  position: absolute;
+  top: 50vh;
+  left: 60vw;
+  transform: translateX(-50%);
+  z-index: 2;
+}
 
 /*------- Starting button ------*/
-.play-game__button{
-    width: 30vw;
-    height: 10vh;
-    margin: 3rem;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    top: 5vh;
-    background-color: #94DAFF;
-    border-radius: 50px;
-    border:none;
-    color: #FFF;
-    font-family: 'Lalezar', cursive;
-    font-size: 3rem;
-    text-align: center;
-    cursor: pointer;
+.play-game__button {
+  width: 30vw;
+  min-width: 200px;
+  max-width: 400px;
+  height: 10vh;
+  min-height: 60px;
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #94daff;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  font-family: "Lalezar", cursive;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .shadow-button {
-    box-shadow:
-      2px 2px 8px rgba(0, 0, 0, 0.4),
-      inset 1px 1px 4px rgba(0,0,0, 0.5);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.play-game__button:hover{
-    background-color: #299FFF;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+.play-game__button:hover {
+  background-color: #299fff;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
