@@ -86,3 +86,35 @@ body {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
+
+/*------- Rules Container ------*/
+.rule-page-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 10;
+  padding: 2rem;
+}
+
+.rule-page-container__rules {
+  width: 8vw;
+  height: 8vw;
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: #94daff;
+  padding: 0.5rem;
+  aspect-ratio: 1/1;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.rule-page-container__rules:hover {
+  background-color: #299fff;
+}
