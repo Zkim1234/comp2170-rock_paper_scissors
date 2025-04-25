@@ -1,0 +1,6 @@
+/* Rules page */
+body {
+  background-image: url("../images/background-graphics/landing_background_underwater.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
