@@ -64,10 +64,28 @@ body {
     object-fit: contain;
 }
 
+.versus-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.versus-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .speech-bubble {
     position: absolute;
     left: 300px;
-    top: 40%;
+    top: 30%;
     right: -600px;
     background-color: #4360AB;
     padding: 15px;
