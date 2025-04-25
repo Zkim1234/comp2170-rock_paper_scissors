@@ -64,6 +64,27 @@ body {
     object-fit: contain;
 }
 
+.cards-container {
+    position: absolute;
+    top: 35%;
+    left: 17%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 70px;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
 .versus-container {
     position: absolute;
     top: 55%;
