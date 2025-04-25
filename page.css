@@ -40,7 +40,7 @@ body {
 .landing-page__octopus{
     width: 10rem;
     position: absolute;
-    top: 55vh; /* adjust as needed */
+    top: 55vh; 
     left: 60vw;
     transform: translateX(-50%);
     }
