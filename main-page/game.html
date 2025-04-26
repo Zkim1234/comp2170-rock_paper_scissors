@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="game.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap"
-      rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="exit-button">
+    <a href="../index.html" class="exit-button">
         <img src="../images/words/x.png" alt="Exit" class="exit-icon">
-    </div>
+    </a>
     <div class="opponent-container">
         <div class="opponent-name">Octonope</div>
         <img src="../images/other-graphics/Opponent_Character.png" alt="Opponent Character" class="opponent-character">
+        <div class="cards-container">
+            <img src="../images/cards/card_back.png" alt="Card 1" class="card">
+            <img src="../images/cards/card_back.png" alt="Card 2" class="card">
+        </div>
         <div class="speech-bubble">
             <p>Hey, Aquabro. If you can win, you get human legs. If I win, I get your voice heheehheheheheh!</p>
         </div>
     </div>
-    <div class="cards-container">
-        <img src="../images/cards/card_back.png" alt="Card 1" class="card">
-        <img src="../images/cards/card_back.png" alt="Card 2" class="card">
+    <div class="paper-container">
+        <img src="../images/cards/paper_red.png" alt="Paper" class="paper-card">
+    </div>
+    <div class="scissors-container">
+        <img src="../images/cards/scissors_blue.png" alt="Scissors" class="scissors-card">
+    </div>
+    <div class="scissors-bottom-right">
+        <img src="../images/cards/scissors_blue.png" alt="Scissors" class="scissors-card-bottom">
+    </div>
+    <div class="rock-bottom-right">
+        <img src="../images/cards/rock_blue.png" alt="Rock" class="rock-card-bottom">
     </div>
     <div class="versus-container">
         <img src="../images/words/versus.png" alt="Versus" class="versus-image">
     </div>
 
-    <script src="/main-page/game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
