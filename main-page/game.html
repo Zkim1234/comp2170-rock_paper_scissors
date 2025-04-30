@@ -1,14 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/main-page/game.css">
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="game.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- AI CHARACTER -->
+    <a href="../page.html" class="exit-button">
+      <img src="../images/words/x.png" alt="Exit" class="exit-icon" />
+    </a>
+    <div class="opponent-container">
+      <div class="opponent-name">Octonope</div>
+      <img
+        src="../images/other-graphics/Opponent_Character.png"
+        alt="Opponent Character"
+        class="opponent-character"
+      />
+      <div class="cards-container">
+        <img src="../images/cards/card_back.png" alt="Card 1" class="card" />
+        <img src="../images/cards/card_back.png" alt="Card 2" class="card" />
+        <img src="../images/cards/card_back.png" alt="Card 2" class="card" />
+      </div>
+      <div class="speech-bubble">
+        <p>
+          Hey, Aquabro. If you can win, you get human legs. If I win, I get your
+          voice heheehheheheheh!
+        </p>
+      </div>
+    </div>
+    <div class="versus-container">
+      <img src="../images/words/versus.png" alt="Versus" class="versus-image" />
+    </div>
 
-    <script src="/main-page/game.js"></script>
-</body>
+    <!-- AI Score Stars -->
+    <div class="ai-score stars">
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+    </div>
+    <!-- AI Deck -->
+    <img src="../images/cards/octopus deck.png" alt="AI Deck" class="ai-deck" />
+
+    <!-- Player and AI played cards -->
+    <div class="played-cards-container">
+      <div class="ai-played-card"></div>
+      <div class="player-played-card"></div>
+    </div>
+
+    <!-- WIN/LOSE OVERLAYS -->
+
+    <div id="you-win-overlay" class="overlay">
+      <div class="overlay-content">
+        <img src="../images/lose-win/you-win-overlay.png" alt="You Win" />
+        <div class="overlay-buttons">
+          <button class="styled-button play-again">Play Again</button>
+          <a href="/page.html">
+            <button class="styled-button back-home">Back to Home</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="you-lose-overlay" class="overlay">
+      <div class="overlay-content">
+        <img src="../images/lose-win/you-lose-overlay.png" alt="You Lose" />
+        <div class="overlay-buttons">
+          <button class="styled-button play-again">Play Again</button>
+          <a href="/page.html">
+            <button class="styled-button back-home">Back to Home</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause Game Overlay -->
+    <div id="pause-game-overlay" class="overlay">
+      <div class="overlay-content">
+        <img src="/images/lose-win/pause-game.png" alt="Pause Game" />
+        <div class="overlay-buttons">
+          <button class="styled-button replay-game">Replay</button>
+          <a href="/page.html">
+            <button class="styled-button back-home">Exit game</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAYER CARDS -->
+    <div class="scissors-bottom-right choice">
+      <img
+        src="../images/cards/scissors_blue.png"
+        alt="Scissors"
+        class="scissors-card-bottom"
+      />
+    </div>
+    <div class="rock-bottom-right choice">
+      <img
+        src="../images/cards/rock_blue.png"
+        alt="Rock"
+        class="rock-card-bottom"
+      />
+    </div>
+    <div class="paper-bottom-right choice">
+      <img
+        src="../images/cards/paper_blue.png"
+        alt="Paper"
+        class="paper-card-bottom"
+      />
+    </div>
+
+    <!-- Player Score Stars -->
+    <div class="player-score stars">
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+      <img src="../images/lose-win/uncoloured_star.png" class="star" />
+    </div>
+
+    <script src="game.js"></script>
+  </body>
 </html>
