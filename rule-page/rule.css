@@ -1,6 +1,117 @@
-/* Rules page */
 body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
   background-image: url("../images/background-graphics/landing_background_underwater.png");
-  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Lalezar", cursive;
+}
+
+.rule-page-container {
+  width: 30vw;
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 20px;
+  margin: 5rem auto;
+  font-family: "Lalezar", cursive;
+  border: 10px solid #8fbaff;
+  overflow: hidden;
+}
+
+.rule-page-container__rules {
+  background-color: #fff;
+  border-radius: 10%;
+  border: 5px solid #8fbaff;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.rules {
+  width: 15vw;
+  max-width: 200px;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.rule-page-container li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Lalezar", cursive;
+}
+
+.rule-page-container ol {
+  color: #39aef6;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Lalezar", cursive;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.play-or-back__buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.play-or-back__buttons__play,
+.play-or-back__buttons__back {
+  padding: 1rem 8rem;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: "Lalezar", cursive;
+  transition: all 0.3s ease-in-out;
+}
+
+.play-or-back__buttons__play {
+  background-color: #24dcf0;
+  color: white;
+  padding: 1rem 7.6rem;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: "Lalezar", cursive;
+  transition: all 0.3s ease-in-out;
+}
+
+.play-or-back__buttons__back {
+  background-color: white;
+  color: #1584bb;
+  border: 3px solid #1584bb;
+  padding: 1rem 8rem;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Lalezar", cursive;
+  transition: all 0.3s ease-in-out;
+}
+
+.play-or-back__buttons__play:hover {
+  background-color: #1cb8c9;
+  transform: scale(1.05);
+}
+
+.play-or-back__buttons__back:hover {
+  background-color: #1584bb;
+  color: white;
+  transform: scale(1.05);
 }
