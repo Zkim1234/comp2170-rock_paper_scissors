@@ -8,6 +8,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #000; /* Fallback color */
+  overflow: hidden;
+  height: 100vh;
 }
 
 /*------- landing page container ------*/
@@ -85,6 +87,9 @@ body {
   background-color: #299fff;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
+}
+a {
+  text-decoration: none;
 }
 
 /*------- Rules Container ------*/
