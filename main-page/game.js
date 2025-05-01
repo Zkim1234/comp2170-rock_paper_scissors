@@ -1,30 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded");
 
+  // Card variables
   const paper = document.querySelector(".paper-bottom-right");
   const scissors = document.querySelector(".scissors-bottom-right");
   const rock = document.querySelector(".rock-bottom-right");
+  // Score variables
   const aiScoreStars = document.querySelectorAll(".ai-score.stars .star");
   const playerScoreStars = document.querySelectorAll(
     ".player-score.stars .star"
   );
   const playerPlayedCard = document.querySelector(".player-played-card");
+  // AI variables
   const aiPlayedCard = document.querySelector(".ai-played-card");
   const aiCards = document.querySelectorAll(".cards-container .card");
+  // Speech bubble variables
   const speechBubble = document.querySelector(".speech-bubble");
+  // Overlay variables
   const youWinOverlay = document.getElementById("you-win-overlay");
   const youLoseOverlay = document.getElementById("you-lose-overlay");
   const pauseOverlay = document.getElementById("pause-game-overlay");
   const exitButton = document.querySelector(".exit-button");
-  const replayGameButton = document.querySelector(".replay-game");
+  // Button variables
+  const replayButton = document.querySelector(".replay-game");
   const playAgainButtons = document.querySelectorAll(".play-again");
 
-  // Card types
+  // Card types and Score variables
   const cardTypes = ["paper", "scissors", "rock"];
   let playerScore = 0;
   let aiScore = 0;
   let gameOver = false;
 
+  // Generates a random card type for the AI
+  function computerChoice() {
+    const randomIndex = Math.floor(Math.random() * cardTypes.length);
+    return cardTypes[randomIndex];
+  }
+  //Resets the game
   function resetGame() {
     // Reset scores
     playerScore = 0;
@@ -46,11 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show speech bubble
     speechBubble.style.display = "block";
 
-    // Hide overlays
+    // Hide gameover overlays
     youWinOverlay.style.display = "none";
     youLoseOverlay.style.display = "none";
     pauseOverlay.style.display = "none";
-    // Re-enable card clicks
+
+    // Re-enable card clicks makes card clickable
     paper.style.pointerEvents = "auto";
     scissors.style.pointerEvents = "auto";
     rock.style.pointerEvents = "auto";
@@ -61,18 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", resetGame);
   });
 
-  replayGameButton.addEventListener("click", resetGame);
-
-  function freezeCards() {
-    paper.style.pointerEvents = "none";
-    scissors.style.pointerEvents = "none";
-    rock.style.pointerEvents = "none";
-  }
-
-  function computerChoice() {
-    const randomIndex = Math.floor(Math.random() * cardTypes.length);
-    return cardTypes[randomIndex];
-  }
+  replayButton.addEventListener("click", resetGame);
 
   function determineWinner(playerType, aiType) {
     if (playerType === aiType) return "tie";
@@ -86,13 +88,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return "ai";
   }
 
-  function showPlayedCards(playerType, aiType) {
+  // Freezes the cards when overlays are shown
+  function freezeCards() {
+    paper.style.pointerEvents = "none";
+    scissors.style.pointerEvents = "none";
+    rock.style.pointerEvents = "none";
+  }
+
+  function showPlayedCards(playerType, aiType, clickedCard) {
     // Hide the speech bubble
     speechBubble.style.display = "none";
 
-    // Hide the selected player card
-    const selectedCard = document.querySelector(`.${playerType}-bottom-right`);
-    selectedCard.style.display = "none";
+    // Hide the clicked player card
+    clickedCard.style.display = "none";
 
     // Show the player's card immediately
     playerPlayedCard.innerHTML = `<img src="../images/cards/${playerType}_blue.png" style="width:220px; height:220px; object-fit: contain;">`;
@@ -139,9 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
         playerPlayedCard.style.display = "none";
         aiPlayedCard.style.display = "none";
 
-        // Show the selected player card again
-        selectedCard.style.display = "flex";
-        selectedCard.innerHTML = `<img src="../images/cards/${playerType}_blue.png" style="width:200%; height:200%; object-fit: contain;">`;
+        // Generate a random card type for the player
+        const newCardType =
+          cardTypes[Math.floor(Math.random() * cardTypes.length)];
+
+        // Show the clicked player card again with a new random card
+        clickedCard.style.display = "flex";
+        clickedCard.querySelector(
+          "img"
+        ).src = `../images/cards/${newCardType}_blue.png`;
 
         // Show the AI card again
         aiCardToHide.style.display = "block";
@@ -150,18 +164,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   paper.addEventListener("click", function () {
+    const currentType = this.querySelector("img")
+      .src.split("/")
+      .pop()
+      .split("_")[0];
     const aiType = computerChoice();
-    showPlayedCards("paper", aiType);
+    showPlayedCards(currentType, aiType, this);
   });
 
   scissors.addEventListener("click", function () {
+    const currentType = this.querySelector("img")
+      .src.split("/")
+      .pop()
+      .split("_")[0];
     const aiType = computerChoice();
-    showPlayedCards("scissors", aiType);
+    showPlayedCards(currentType, aiType, this);
   });
 
   rock.addEventListener("click", function () {
+    const currentType = this.querySelector("img")
+      .src.split("/")
+      .pop()
+      .split("_")[0];
     const aiType = computerChoice();
-    showPlayedCards("rock", aiType);
+    showPlayedCards(currentType, aiType, this);
   });
 
   function updateStars() {
@@ -179,20 +205,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Add pause game functionality
-  exitButton.addEventListener("click", (e) => {
-    e.preventDefault(); // Prevent default link behavior
+  // Pause game when clicking X button
+  exitButton.addEventListener("click", function (e) {
+    e.preventDefault();
     pauseOverlay.style.display = "flex";
-    freezeCards();
+    paper.style.pointerEvents = "none";
+    scissors.style.pointerEvents = "none";
+    rock.style.pointerEvents = "none";
+  });
+
+  // Resume game when clicking replay button
+  replayButton.addEventListener("click", function () {
+    pauseOverlay.style.display = "none";
+    if (!gameOver) {
+      paper.style.pointerEvents = "auto";
+      scissors.style.pointerEvents = "auto";
+      rock.style.pointerEvents = "auto";
+    }
   });
 
   // Close pause overlay when clicking outside
-  pauseOverlay.addEventListener("click", (e) => {
-    // Check if the click was directly on the overlay (not its children)
+  pauseOverlay.addEventListener("click", function (e) {
     if (e.target === pauseOverlay) {
       pauseOverlay.style.display = "none";
       if (!gameOver) {
-        unfreezeCards();
+        paper.style.pointerEvents = "auto";
+        scissors.style.pointerEvents = "auto";
+        rock.style.pointerEvents = "auto";
       }
     }
   });
