@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomIndex = Math.floor(Math.random() * cardTypes.length);
     return cardTypes[randomIndex];
   }
+
   //Resets the game
   function resetGame() {
     // Reset scores
